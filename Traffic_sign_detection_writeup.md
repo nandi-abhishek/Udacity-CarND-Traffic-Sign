@@ -51,7 +51,7 @@ The number of unique classes/labels in the data set is 43.
 
 Here is an exploratory visualization of the data set. It is a bar chart showing how the data. It shows that not all classes has large number of samples. Some has around 2000 samples whereas some labels has around 200 examples ...
 
-![original_training_set.png](attachment:original_training_set.png)
+![original_training_set.png](./Writeup_images/original_training_set.png)
 
 ### Design and Test a Model Architecture
 
@@ -63,7 +63,7 @@ Here is an example of a traffic sign image before and after grayscaling.
 
  Original Image  | Gray Scale Image
   ------------- | -------------
- ![Color50.png](attachment:Color50.png "Original Image")   |   ![Gray50.png](attachment:Gray50.png "Grayscale Image")
+ ![Color50.png](./Writeup_images/Color50.png "Original Image")   |   ![Gray50.png](./Writeup_images/Gray50.png "Grayscale Image")
   
 As the next step, I normalized the image data to the range (-1,1). This was done using the line of code X_train_norm = (X_train - 128.0)/128. This step is necessary because normalization helps in making the neural network converge faster since the variation in data is restricted within a specific range. 
 
@@ -79,7 +79,7 @@ Here are some examples of original image and augmented image:
 
 Original Image  | Transformed Image
   ------------- | -------------
- ![Original.png](attachment:Original.png)   |   ![Transformed.png](attachment:Transformed.png)
+ ![Original.png](./Writeup_images/Original.png)   |   ![Transformed.png](./Writeup_images/Transformed.png)
 
 The total data agmentation step might take 4-5 hrs. The augmented data set and the histogram are given below ...
 
@@ -89,7 +89,7 @@ The size of test set is 12630.
 The shape of a traffic sign image is (32, 32, 1).  
 The number of unique classes/labels in the data set is 43.  
 
-![augmented_training_set.png](attachment:augmented_training_set.png)
+![augmented_training_set.png](./Writeup_images/augmented_training_set.png)
 
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
@@ -112,7 +112,7 @@ I decided to use a deep neural network classifier as a model. Instead of using t
 | Fully Connected		| Input 800, output 43							|
 |						|												|
  
-![modifiedLeNet.jpeg](attachment:modifiedLeNet.jpeg)
+![modifiedLeNet.jpeg](./modifiedLeNet.jpeg)
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
@@ -137,7 +137,7 @@ test set accuracy of 94.8%.
 I chose an iterative approach to modify the Le-Net architecture to get the results:
 
 * What was the first architecture that was tried and why was it chosen?  
-I chose the LeNet-5 architecture as a starting point since it works well on hand-written digits. But, I was not getting good validation set accuracy even with tuning al the hyper parameters. Then I went through Sermanet/LeCunn traffic sign classification journal article and decided to try that
+I chose the LeNet-5 architecture as a starting point since it works well on hand-written digits. But, I was not getting good validation set accuracy even with tuning all the hyper parameters. Then I went through Sermanet/LeCunn traffic sign classification journal article and decided to try that
 
 * What were some problems with the initial architecture?  
 There was a lot of overfitting with the initial architecture after feeding the network with the pre-processed data. The training accuracy was about 98% and the validation set accuracy was about 91%.
@@ -169,16 +169,16 @@ Learning Rate: Tried multiple learning rate 0.001, 0.0005, 0.0001. This was beca
 
 Here are some of the German traffic signs that I found on the web:
 
-![30kmph.png](attachment:30kmph.png)
-![bumpy_road.png](attachment:bumpy_road.png)
-![caution_ahead.png](attachment:caution_ahead.png)
-![children_crossing.png](attachment:children_crossing.png)
-![no_entry.png](attachment:no_entry.png)
-![no_truck_passing.png](attachment:no_truck_passing.png)
-![right_turn.png](attachment:right_turn.png)
-![road_work.png](attachment:road_work.png)
-![slippery_road.png](attachment:slippery_road.png)
-![stop.png](attachment:stop.png)
+![30kmph.png](./Downloaded_traffic_sign/30kmph.png)
+![bumpy_road.png](./Downloaded_traffic_sign/bumpy_road.png)
+![caution_ahead.png](./Downloaded_traffic_sign/caution_ahead.png)
+![children_crossing.png](./Downloaded_traffic_sign/children_crossing.png)
+![no_entry.png](./Downloaded_traffic_sign/no_entry.png)
+![no_truck_passing.png](./Downloaded_traffic_sign/no_truck_passing.png)
+![right_turn.png](./Downloaded_traffic_sign/right_turn.png)
+![road_work.png](./Downloaded_traffic_sign/road_work.png)
+![slippery_road.png](./Downloaded_traffic_sign/slippery_road.png)
+![stop.png](./Downloaded_traffic_sign/stop.png)
 
 In general the images acquired from the web have a higher resolution than the images in the training dataset. These images have a lot of objects apart from just traffic signs. Since, my model does not work on newly seen images, I manually cropped the images so that it only contained the traffic sign. Furthermore, my model only accepts inputs with an aspect ratio of 1:1 and of size 32x32. Hence, I resized them in order to fit them into my model which lead to a loss of detail in the images. These were a few issues that I encountered during data pre-processing.
 
@@ -209,8 +209,8 @@ The model was able to correctly guess 9 of these 10 traffic signs, which gives a
 
 The following two images shows the top probablities for each image detected by the model.
 
-![Top5probablities.png](attachment:Top5probablities.png)
-![top5softmax%20probablities.png](attachment:top5softmax%20probablities.png)
+![Top5probablities.png](./Writeup_images/Top5probablities.png)
+![top5softmax%20probablities.png](./Writeup_images/top5softmax%20probablities.png)
 
 Except that one wrong identified image the model is performing well. In most cases it is 100% sure about its prediction too.
 
